@@ -1,11 +1,13 @@
 import { ThemeProvider } from "styled-components";
-import { GlobalStyle, lightTheme } from "ui/index";
+import { GlobalStyle, lightTheme, StyledContainer, StyledHeader } from "ui";
 
 function App() {
   return (
     <ThemeProvider theme={lightTheme}>
       <GlobalStyle />
-      mama
+      <StyledContainer>
+        <StyledHeader />
+      </StyledContainer>
     </ThemeProvider>
   );
 }
