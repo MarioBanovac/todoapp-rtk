@@ -1,5 +1,11 @@
 import { ThemeProvider } from "styled-components";
-import { GlobalStyle, lightTheme, StyledContainer, StyledHeader } from "ui";
+import {
+  GlobalStyle,
+  lightTheme,
+  StyledContainer,
+  StyledHeader,
+  StyledTodoList,
+} from "ui";
 
 function App() {
   return (
@@ -7,6 +13,7 @@ function App() {
       <GlobalStyle />
       <StyledContainer>
         <StyledHeader />
+        <StyledTodoList />
       </StyledContainer>
     </ThemeProvider>
   );

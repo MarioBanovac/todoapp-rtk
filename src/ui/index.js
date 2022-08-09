@@ -6,7 +6,8 @@ import {
   desktopLight,
   desktopDark,
 } from "images/images";
-import { Header } from "components";
+import { CheckIcon } from "icons/icons";
+import { Header, TodoList, TodoItem, Checkbox, Span } from "components";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -42,7 +43,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     ul{
-        list-style:none;
+        list-style-type:none;
     }
 
     img{
@@ -126,5 +127,88 @@ export const StyledHeader = styled(Header)`
 
   > form > input:focus {
     outline: 2px solid ${({ theme }) => theme.tertiaryText};
+  }
+`;
+
+export const StyledTodoList = styled(TodoList)`
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -15px;
+  text-align: center;
+  max-height: 500px;
+  overflow: auto;
+  margin: 0 auto;
+  width: 100%;
+
+  > ul {
+    border-radius: 8px;
+  }
+`;
+
+export const StyledTodoItem = styled(TodoItem)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2.5rem;
+  border-bottom: 1px solid ${({ theme }) => theme.tertiaryText};
+  background: ${({ theme }) => theme.white};
+  position: relative;
+
+  > :last-child,
+  > input {
+    cursor: pointer;
+  }
+`;
+
+export const StyledCheckbox = styled(Checkbox)`
+  user-select: none;
+  > label {
+    display: flex;
+    align-items: end;
+  }
+
+  > label > input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.8em;
+    height: 1.8em;
+    border-radius: 50%;
+    border:1px solid ${({ theme }) => theme.tertiaryText};
+    padding:1rem;
+    outline: none;
+    cursor: pointer;
+  }
+
+  > label > input[type="checkbox"]:checked {
+    position: relative;
+    background-image: ${({ theme }) => theme.checkBg};
+  }
+
+
+  > label > input[type="checkbox"]:checked::after {
+    font-size: 1.5em;
+    color: #fff;
+    position: absolute;
+    right: 3px;
+    top: -2px;
+    content:"✔";
+`;
+
+export const StyledSpan = styled(Span)`
+  margin-left: 1.6rem;
+  cursor: pointer;
+  color: ${({ isChecked, theme }) =>
+    isChecked ? theme.tertiaryText : theme.text};
+  transition: color 0.3s ease-in-out;
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: ${({ theme }) => theme.tertiaryText};
+    display: ${({ isChecked }) => (isChecked ? "block" : "none")};
   }
 `;
