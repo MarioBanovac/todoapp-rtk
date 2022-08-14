@@ -11,7 +11,7 @@ export default function TodoList(props) {
           <StyledTodoItem key={todo.id} todo={todo} />
         ))}
       </ul>
-      {todos.length > 0 && <StyledTodoFooter length={todos.length} />}
+      {todos.length > 0 && <StyledTodoFooter todos={todos} />}
     </ContentContainer>
   );
 }
