@@ -1,19 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
-  {
-    text: "Buy milk",
-    id: Math.random(),
-    isActive: true,
-    isCompleted: false,
-  },
-  {
-    text: "Learn programming",
-    id: Math.random(),
-    isActive: true,
-    isCompleted: false,
-  },
-];
+const initialState = [];
 
 export const todoSlice = createSlice({
   name: "todo",
@@ -32,9 +19,13 @@ export const todoSlice = createSlice({
         1
       );
     },
+    clearCompletedTodos: (state, action) => {
+      return state.filter((todo) => !todo.isCompleted);
+    },
   },
 });
 
-export const { addTodo, completeTodo, deleteTodo } = todoSlice.actions;
+export const { addTodo, completeTodo, deleteTodo, clearCompletedTodos } =
+  todoSlice.actions;
 
 export default todoSlice.reducer;

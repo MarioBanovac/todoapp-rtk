@@ -7,7 +7,14 @@ import {
   desktopDark,
 } from "images/images";
 import { CheckIcon } from "icons/icons";
-import { Header, TodoList, TodoItem, Checkbox, Span } from "components";
+import {
+  Header,
+  TodoList,
+  TodoItem,
+  Checkbox,
+  Span,
+  TodoFooter,
+} from "components";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -210,5 +217,26 @@ export const StyledSpan = styled(Span)`
     height: 2px;
     background: ${({ theme }) => theme.tertiaryText};
     display: ${({ isChecked }) => (isChecked ? "block" : "none")};
+  }
+`;
+
+export const StyledTodoFooter = styled(TodoFooter)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50px;
+  background-color: #fff;
+  z-index: 2;
+  padding: 0 3rem;
+  color: ${({ theme }) => theme.secondaryText};
+  > span {
+    font-size: 16px;
+  }
+
+  > button {
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+    font-size: 16px;
   }
 `;

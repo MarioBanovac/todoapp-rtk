@@ -18,7 +18,6 @@ export default function Header(props) {
       addTodo({
         text: value,
         id: Math.random(),
-        isActive: true,
         isCompleted: false,
       })
     );

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { ContentContainer, StyledTodoItem } from "ui";
+import { ContentContainer, StyledTodoItem, StyledTodoFooter } from "ui";
 
 export default function TodoList(props) {
   const todos = useSelector((state) => state.todos);
@@ -11,6 +11,7 @@ export default function TodoList(props) {
           <StyledTodoItem key={todo.id} todo={todo} />
         ))}
       </ul>
+      {todos.length > 0 && <StyledTodoFooter length={todos.length} />}
     </ContentContainer>
   );
 }
