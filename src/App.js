@@ -5,6 +5,7 @@ import {
   StyledContainer,
   StyledHeader,
   StyledTodoList,
+  StyledFilterContainer,
 } from "ui";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <StyledContainer>
         <StyledHeader />
         <StyledTodoList />
+        <StyledFilterContainer />
       </StyledContainer>
     </ThemeProvider>
   );

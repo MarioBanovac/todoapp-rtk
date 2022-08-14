@@ -14,6 +14,8 @@ import {
   Checkbox,
   Span,
   TodoFooter,
+  FilterContainer,
+  FilterButton,
 } from "components";
 
 export const GlobalStyle = createGlobalStyle`
@@ -67,8 +69,8 @@ export const lightTheme = {
   active: "hsl(220, 98%, 61%)",
   checkBg: "linear-gradient(#57ddff,#c058f3)",
   complete: "hsl(236, 33%, 92%)",
-  fontNormal: 400,
-  fontBold: 700,
+  fontNormal: "400",
+  fontBold: "700",
 };
 
 export const StyledContainer = styled.div`
@@ -139,7 +141,7 @@ export const StyledHeader = styled(Header)`
 
 export const StyledTodoList = styled(TodoList)`
   border-radius: 8px;
-  box-shadow: 0 10px 25px -15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   text-align: center;
   max-height: 500px;
   overflow: auto;
@@ -230,13 +232,35 @@ export const StyledTodoFooter = styled(TodoFooter)`
   padding: 0 3rem;
   color: ${({ theme }) => theme.secondaryText};
   > span {
-    font-size: 16px;
+    font-size: 1.6rem;
   }
 
   > button {
     cursor: pointer;
     font-family: inherit;
     color: inherit;
-    font-size: 16px;
+    font-size: 1.6rem;
   }
+`;
+
+export const StyledFilterContainer = styled(FilterContainer)`
+  margin: 5rem auto 0 auto;
+  background-color: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  min-height: 60px;
+  text-align: center;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 11rem;
+`;
+
+export const StyledFilterButton = styled(FilterButton)`
+  font-weight: ${({ theme }) => theme.fontBold};
+  color: ${({ theme, isActive }) =>
+    isActive ? theme.active : theme.secondaryText};
+  font-family: inherit;
+  font-size: 1.6rem;
+  cursor: pointer;
 `;

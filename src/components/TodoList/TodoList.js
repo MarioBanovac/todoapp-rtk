@@ -3,15 +3,24 @@ import { ContentContainer, StyledTodoItem, StyledTodoFooter } from "ui";
 
 export default function TodoList(props) {
   const todos = useSelector((state) => state.todos);
+  let filtertedTodos = [];
+  const { filterValue } = useSelector((state) => state.filter);
+  if (filterValue === "All") {
+    filtertedTodos = todos;
+  } else if (filterValue === "Active") {
+    filtertedTodos = todos.filter((todo) => !todo.isCompleted);
+  } else {
+    filtertedTodos = todos.filter((todo) => todo.isCompleted);
+  }
   const { className } = props;
   return (
     <ContentContainer className={className}>
       <ul className={className}>
-        {todos.map((todo) => (
+        {filtertedTodos.map((todo) => (
           <StyledTodoItem key={todo.id} todo={todo} />
         ))}
       </ul>
-      {todos.length > 0 && <StyledTodoFooter todos={todos} />}
+      {filtertedTodos.length > 0 && <StyledTodoFooter todos={todos} />}
     </ContentContainer>
   );
 }
